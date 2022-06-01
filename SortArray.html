@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array sort</title>
+</head>
+<body>
+  <!-- <p id="arr"></p> -->
+  <input type="text" name="" value="" id="arr">
+<input type="button" name="" value="sortarray" onclick="sortarray();">
+    <script >
+    // var number = prompt("Enter array element");
+    //  document.getElementById("arr").innerText = number;
+////////Sort Array//////////////////
+function sortarr(array) {
+  var swapped;
+  do {
+    swapped = false;
+    for (var i = 0; i < array.length - 1; i++) {
+      if (array[i] > array[i + 1]) {
+        var temp = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = temp;
+        swapped = true;
+      }
+    }
+  } while (swapped);
+}
+function sortarray() {
+    var list = document.getElementById("arr").value.split(",").map(Number);
+    console.log(list)
+    sortarr(list);
+    document.write(list)
+}
+    </script>
+</body>
+</html>

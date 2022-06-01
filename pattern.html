@@ -1,0 +1,29 @@
+    <!-- 5
+   45
+  345
+ 2345
+12345 -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pattern</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+var i,j;
+      for(i=5;i>=1;i--){
+        for(j=5;j>=i;j--){
+            // document.write(""+j)
+            if(j > i){
+  document.write("&nbsp;&nbsp;");
+}else{
+  document.write(j);
+}
+        }
+        document.write("<br>")
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" >
+
+
+    <input type="text"  name="show1" id='show' placeholder="0" onkeypress="return isNumber(event)" >
+    <br><br>
+    <input type="button" value="1" onclick="display('1')">
+    <input type="button" value="2" onclick="display('2')">
+    <input type="button" value="3" onclick="display('3')">
+    <input type="button" value="+" onclick="display('+')">
+    <br><br>
+    <input type="button" value="4" onclick="display('4')">
+    <input type="button" value="5" onclick="display('5')">
+    <input type="button" value="6" onclick="display('6')">
+    <input type="button" value="-" onclick="display('-')">
+    <br><br>
+    <input type="button" value="7" onclick="display('7')">
+    <input type="button" value="8" onclick="display('8')">
+    <input type="button" value="9" onclick="display('9')">
+    <input type="button" value="*" onclick="display('*')">
+    <br><br>
+    <input type="button" value="." onclick="display('.')">
+    <input type="button" value="0" onclick="display('0')">
+    <input type="button" value="/" onclick="display('/')">
+    <input type="button" value="=" onclick="equal()">
+    <br><br>
+    <input type="button" name="clear" value="clear" onclick="remove('')">
+      <input type="button" value="%" onclick="display('%')">
+      <input type="button" value="<-" onclick="back('<-')">
+
+    </form>
+<script type="text/javascript">
+  function display(val){
+  var val=  document.getElementById('show').value+=val;
+  }
+  function remove(val){
+    var val = document.getElementById('show').value=val;
+  }
+  function back(val) {
+    var val = document.getElementById('show').value.slice(0,-1);
+    document.getElementById('show').value=val;
+  }
+  function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+    return false;
+  }
+   return true;
+     }
+  // function equal(val){
+  //   var val = document.getElementById('show').value=eval(show.value);
+  // }
+
+function equal(){
+  var a = [];
+  switch (true) {
+    case document.getElementById("show").value.includes("+") :
+       a = document.getElementById("show").value.split('+');
+       var b = parseInt(a[0])+parseInt(a[1])
+       document.getElementById("show").value=b;
+break;
+case document.getElementById("show").value.includes("-") :
+   a = document.getElementById("show").value.split('-');
+   var b = parseInt(a[0])-parseInt(a[1])
+   document.getElementById("show").value=b;
+   break;
+   case document.getElementById("show").value.includes("*") :
+      a = document.getElementById("show").value.split('*');
+      var b = parseInt(a[0])*parseInt(a[1])
+      document.getElementById("show").value=b;
+      break;
+      case document.getElementById("show").value.includes("%") :
+         a = document.getElementById("show").value.split('%');
+         var b = (parseFloat(a[0])/100)*parseFloat(a[1]);
+         document.getElementById("show").value=b;
+         break;
+     default:
+       a = document.getElementById("show").value.split('/');
+       var b = parseInt(a[0])/parseInt(a[1])
+       document.getElementById("show").value=b;
+
+  }
+}
+</script>
+  </body>
+</html>
